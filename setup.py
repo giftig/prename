@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='prename',
-    version='1.0.0',
+    version='1.1.0',
     description='Simple CLI tool for enacting regex renames',
     author='Rob Moore',
     author_email='giftiger.wunsch@xantoria.com',
