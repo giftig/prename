@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python
 # encoding: utf-8
 
 import argparse
@@ -63,7 +63,7 @@ def mass_rename(args, dir):
             mass_rename(os.path.join(dir, subdir))
 
     if files and (args.verbosity > 0 or args.dry):
-        print '[\x1b[0;36m%s\x1b[0m]' % truncate_str(dir, 70, False)
+        print('[\x1b[0;36m{}\x1b[0m]'.format(truncate_str(dir, 70, False)))
 
     for file in files:
         if not args.pattern.search(file):
@@ -80,16 +80,16 @@ def mass_rename(args, dir):
             sys.stdout.flush()
 
         if args.dry:
-            print ''
+            print('')
             continue
 
         try:
             os.rename(os.path.join(dir, file), os.path.join(dir, dest))
             if args.verbosity > 0:
-                print '  [ \x1b[1;32mOK\x1b[0m ]'
-        except:
+                print('  [ \x1b[1;32mOK\x1b[0m ]')
+        except Exception:
             if args.verbosity > 0:
-                print '  [ \x1b[1;31mFAILED\x1b[0m ]'
+                print('  [ \x1b[1;31mFAILED\x1b[0m ]')
 
             if not args.force:
                 if args.verbosity > 1:
